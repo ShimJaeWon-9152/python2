@@ -115,8 +115,80 @@ for k in zip(a,b,c):
 """
 
 #문제 10번
+"""
 week  = ['mon','tue','wed','thu','fri','sat','sun']
 rainbow = ['red','orange','yellow','green','blue','navy','purple']
 list_data = [week, rainbow]
 
 print(list_data[1][2])
+"""
+
+# 제네레이터의 사용
+"""
+ex = [1,2,3,4,5]
+f = lambda x : x + 5
+for value in list(map(f,ex)):
+    print(value)
+"""
+
+# 리스트 컴프리헨션
+"""
+ex = [1,2,3,4,5]
+i = [x ** 2 for x in ex]
+print(i)
+"""
+
+# 한개 이상의 시퀸스 자료형 데이터의 처리
+"""
+ex = [1,2,3,4,5]
+f = lambda x,y:x+y
+print(list(map(f,ex,ex)))
+"""
+
+# 필터링 기능
+# - MAP() 함수는 리스트 컴프리헨션처럼 필터링 기능을 사용가능 리스트 컴프리헨션과 달리 else문을 반드시 작성
+"""
+ex = [1,2,3,4,5]
+i = list(map(lambda x:x **2 if x % 2 == 0 else x, ex))
+print(i)
+"""
+
+#reduce 함수
+"""
+from functools import reduce
+print(reduce(lambda x,y:x+y,[1,2,3,4,5]))
+"""
+
+#별표의 사용
+"""
+def asterisk_test(a,*args):
+    print(a,args)
+    print(type(args))
+
+asterisk_test(1,2,3,4,5,6)
+"""
+
+#키워드 가변 인수
+"""
+def asterisk_test(a,*kargs):
+    print(a,kargs)
+    print(type(kargs))
+
+asterisk_test(1,f=1,b=2,c=3,d=4,e=5)
+"""
+
+# 별표의 언패킹 기능
+"""
+def asterisk_test(a,kargs):
+    print(a,*kargs)
+    print(type(kargs))
+
+asterisk_test(1,(1,2,3,4,5))
+"""
+
+# 별표의 언패킹 기능2
+
+def asterisk_test(a,*kargs):
+    print(a,kargs)
+    print(type(kargs))
+asterisk_test(1,(1,2,3,4,5))
