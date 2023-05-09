@@ -1,11 +1,12 @@
-#enumerate()
 """
+#enumerate()
+
 for i, v in enumerate(['tic','tac','toe']):
     print(i,v)
-"""
+
 
 #zip() 함수
-"""
+
 alist = ['a1','a2','a3']
 blist = ['b1','b2','b3']
 for a,b in zip(alist,blist):
@@ -188,7 +189,60 @@ asterisk_test(1,(1,2,3,4,5))
 
 # 별표의 언패킹 기능2
 
+"""
 def asterisk_test(a,*kargs):
     print(a,kargs)
     print(type(kargs))
 asterisk_test(1,(1,2,3,4,5))
+"""
+
+# zip 함수를 함께 사용한 가변인수
+"""
+for data in zip(*[[1,2],[3,4],[5,6]]):
+   print(data)
+   print(type(data))
+
+
+# zip 함수를 함께 사용한 가변인수
+
+for data in zip(*[[1,2],[3,4],[5,6]]):
+   print(data)
+   print(type(data))
+   
+def asterisk_data(a,**args):
+   print(a,args)
+   
+data = {"b":1,"c":2,"d":3}
+asterisk_data(10,data)
+
+#예제 1번문제
+f = lambda x : x **2
+
+#예제 2번문제
+ex = [1,2,3,4,5]
+value = lambda x : x **2
+print(list(map(value,ex)))
+
+#예제 3번 문제 몰?루
+"""
+"""
+from functools import reduce
+
+input_str = input("Enter a number: ")
+digits = [int(d) for d in input_str]  # convert string to list of integers
+product = reduce(lambda x, y: x * y, digits)
+print(product)
+
+
+#예제 4번 
+def transpose_list (two_dimensional_list):
+   return [row for row in zip(*two_dimensional_list)]
+   
+   
+print(transpose_list([[1,4,6],[2,5,6],[3,6,8]]))
+
+#예제 5번
+date_info = {year : 2019, month : 9, day : 6}
+result = year-month-day.format(**date_info)
+print(result)
+"""
