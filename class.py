@@ -40,6 +40,7 @@ players_objects = [SoccerPlayer(name,position,number) for name,position,number i
 print(players_objects[0])
 """
 
+"""
 # Note 클래스
 
 class Note():
@@ -154,3 +155,119 @@ LG_TV.describe()
 
 samsung_microwave = Laptop(15,2022,"Samsung")
 samsung_microwave.describe()
+"""
+"""
+class Person:
+    def __init__(self,name,age,position):
+        self.name = name
+        self.age = age
+        self.position = position
+    def show_info(self):
+        print('이름:{}'.format(self.name))
+        print('나이:{}'.format(self.age))
+        print('직위:{}'.format(self.position))
+        print('저는 가천대학교 연구소 {0} {1} 입니다 나이는 {2}입니다.'.format(self.position,self.name,self.age))
+
+class Resarcher(Person):
+    def __init__(self,name,age,position,degree):
+        Person.__init__(self,name,age,position)
+        self.degree = degree
+    def show_info(self):
+        Person.show_info(self)
+        print("저는 {} 입니다.".format(self.degree))
+
+if __name__ == '__main__':
+    resarcher_john = Resarcher("John","22","연구원","학사")
+    resarcher_ted = Resarcher("Ted","40","소장","박사")
+    resarcher_john.show_info()
+    print('='*50)
+    resarcher_ted.show_info()
+"""
+"""
+class Score:
+    def __init__(self,student):
+        tmp = student.split(",")
+        self.name = tmp[0]
+        self.midterm = int(tmp[1])
+        self.final = int(tmp[2])
+        self.assignmet = int(tmp[3])
+        self.score = None
+        self.grade = None
+
+    def total_score(self):
+        test_score = ((self.midterm + self.final)/2)*0.8
+        
+        if self.assignmet >= 3:
+            assign_score = 20
+        elif self.assignmet >= 2:
+            assign_score = 10
+        elif self.assignmet >= 1:
+            assign_score = 5
+        else:
+            assign_score = 0
+         
+        self.score = test_score + assign_score
+
+    def total_grade(self):
+        if self.assignmet == 0:
+            grade = 'F'
+        elif self.score >= 90:
+            grade = 'A'
+        elif self.score >= 70:
+            grade = 'B'
+        elif self.score >= 60:
+            grade = 'C'
+
+        else:
+            grade = 'F'
+
+        self.grade = grade
+        return grade
+
+student_john = Score("John,90,90,0")
+aa = student_john.total_score()
+bb = student_john.total_grade()
+print(aa,bb,student_john.score,student_john.grade)
+"""
+"""
+class IceCream(object):
+    def __init__(self,flavor):
+        self.flavor = flavor
+    def change_flavor(self,new_flavor):
+        print('아이스크림을 %s 에서 %s로 변경해주세요'%(self.flavor,new_flavor))
+        self.flavor = new_flavor
+        print('아이스크림을 %s로 변경했습니다.'%(self.flavor))
+
+ice_cream = IceCream('레인보우샤베트')
+ice_cream.change_flavor('엄마는 외계인')
+"""
+"""
+class Terran(object):
+    def __init__(self,mineral):
+        self.scv = 4
+        self.marine = 0
+        self.medic = 0
+        self.mineral = mineral
+    def command(self,SCV = False):
+        self.mineral += 8*self.scv
+        if SCV:
+            self.scv += 1
+            self.mineral -= 10
+
+    def barrack(self, Marine = False, Medic = False):
+        self.mineral += 8*self.scv
+        if Marine:
+            self.marine += 1
+            self.mineral -= 15
+        if Medic:
+            self.medic += 1
+            self.mineral -= 25
+    def check_source(self):
+        print("Mineral:"+str(self.mineral)) 
+
+User = Terran(50)
+User.command(True)
+User.barrack(True,True)
+User.check_source()
+"""
+
